@@ -8,14 +8,17 @@
     <div class="card-body">
       <div>
         <h6>선언적 방식 Component 전환</h6>
-        <router-link to="/menu/exam03view/subacomponent" class="btn btn-info btn-sm">SubAComponent</router-link>
-        <router-link to="/menu/exam03view/subbcomponent" class="btn btn-info btn-sm">SubBComponent</router-link>  
+        <router-link to="/menu01/exam03view/subacomponent" class="btn btn-info btn-sm">SubAComponent</router-link>
+        <router-link to="/menu01/exam03view/subbcomponent" class="btn btn-info btn-sm">SubBComponent</router-link>  
         
         <h6>프로그램 방식 Component 전환</h6>
-        <button @:click="goUrl('a')" class="btn btn-info btn-sm">SubAComponent</router-link>
-        <button @:click="goUrl('b')" class="btn btn-info btn-sm">SubAComponent</router-link>  
+        <button v-on:click="goUrl('a')" class="btn btn-info btn-sm">SubAComponent</button>
+        <button @click="goUrl('b')" class="btn btn-info btn-sm">SubBComponent</button>  
       </div>
       <div class="mt-2">
+
+        <!--subacomponent, subbcomponent 는 여기 들어간다!
+            router > index.html에 child가 선언되어있기 때문 -->
         <router-view></router-view>
       </div>
     </div>
@@ -37,9 +40,8 @@ export default {
   //컴포넌트 메서드터 정의
   methods:{
     goUrl(kind){
-      this.$router.push("/menu01/example3ViewSub${kind}component")
+      this.$router.push(`/menu01/exam03view/sub${kind}component`)
         .catch(()=>{})
-     
     }
   }
 }

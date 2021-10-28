@@ -3,14 +3,15 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Exam02View
+      프로그래밍 방식(Exam02View)
     </div>
     <div class="card-body">
         <sub-a-component/>
+        <SubAComponent/>
         <button class="btn btn-info btn-sm mr-2" v-on:click="goUrl">/menu01/exam01view</button>
-        <button class="btn btn-info btn-sm  mr-2" @:click="goUrl">/menu01/exam01view</button>
+        <button class="btn btn-info btn-sm  mr-2" @click="goUrl">/menu01/exam01view</button>
         <button class="btn btn-info btn-sm mr-2" v-on:click="goUrl">/menu01/exam01view</button>
-        <button class="btn btn-info btn-sm  mr-2" @:click="goUrl">/menu01/exam01view</button>
+        <button class="btn btn-info btn-sm  mr-2" @click="goUrl">/menu01/exam01view</button>
     </div>
   </div>
 </template>
@@ -34,6 +35,7 @@ export default {
     //현재 url과 다른 경로로 이동할 경우 dbURL()
     //goUrl: function() {},
     //goUrl: ()=> {}
+    //$router : 경로 이동    $route : url, param, queryString ...
     goUrl() {
       this.$router.push("/menu01/exam01View")
         .catch(()=>{})//현 component의 router속성

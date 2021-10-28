@@ -3,22 +3,26 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Element01View
+      Exam08View
     </div>
     <div class="card-body">
-      <!--태그 이용 화면 전환(router-link)-->
-      <h6>선언적 방식 화면 이동</h6>
-      <router-link class="btn btn-info btn-sm" to="/menu01/exam02view">/menu01/exam02view</router-link>
-      <router-link class="btn btn-info btn-sm" v-binid:to="`/menu01/exam02view`">/menu01/exam02view(백틱`)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{path:'/menu01/exam02view'}">/menu01/exam02view(객체)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{name: 'menu01_exam02view'}">/menu01/exam02view(객체)</router-link>
+      <!--data 얻는법 1-->
+      <div>kind: {{$route.query.kind}}</div>
+      <div>color: {{$route.query.color}}</div>
+      <!--data 얻는법 2-->
+      <div>kind: {{kind}}</div>
+      <div>color: {{color}}</div>
+
+      <hr/>
+      <button @click="goHome">홈으로 이동</button>
+      <button @click="goBack">뒤로 이동</button>
     </div>
   </div>
 </template>
 <script>
 export default {
   //component의 대표 이름(devTools에 나오는 이름)
-  name:"Element01View",
+  name:"Exam08View",
   //추가하고 싶은 컴포넌트를 등록
   components:{
     
@@ -30,7 +34,15 @@ export default {
   },
   //컴포넌트 메서드터 정의
   methods:{
-  }
+    goHome(){
+      this.$router.push("/");
+    },
+    goBack(){
+      this.$router.go(-1);
+    },
+  },
+  //컴포넌트가 생성된 후 실행되는 메서드
+  props: ["kind", "color"],
 }
 </script>
 <!--scoped : 지역변수, 없으면 전역 style이 된다. 붙이는게 좋다

@@ -1,9 +1,9 @@
 <!-- 컴포넌트 UI 정의
     주의할 점 : 루트 Element가 하나만 있어야한다. -->
 <template>
-  <div class="card">
+  <div class="card m-4">
     <div class="card-header">
-      SubAComponent
+      SubAComponent(조각)
     </div>
     <div class="card-body">
       

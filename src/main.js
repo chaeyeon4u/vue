@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'  //'./router/index.js' 인데 생략 가능..!
+import router from './router'  //'./router/index.js' 인데 생략 가능
 
 Vue.config.productionTip = false
 

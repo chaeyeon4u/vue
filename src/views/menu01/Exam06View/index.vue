@@ -3,22 +3,19 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Element01View
+      Exam06View
     </div>
     <div class="card-body">
-      <!--태그 이용 화면 전환(router-link)-->
-      <h6>선언적 방식 화면 이동</h6>
-      <router-link class="btn btn-info btn-sm" to="/menu01/exam02view">/menu01/exam02view</router-link>
-      <router-link class="btn btn-info btn-sm" v-binid:to="`/menu01/exam02view`">/menu01/exam02view(백틱`)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{path:'/menu01/exam02view'}">/menu01/exam02view(객체)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{name: 'menu01_exam02view'}">/menu01/exam02view(객체)</router-link>
+      <h6>params(path variable)로 데이터 얻기</h6>
+      <div>bno: {{ $route.params.bno }}</div>
+      <div>bno(props 사용): {{ bno }}</div>
     </div>
   </div>
 </template>
 <script>
 export default {
   //component의 대표 이름(devTools에 나오는 이름)
-  name:"Element01View",
+  name:"Exam06View",
   //추가하고 싶은 컴포넌트를 등록
   components:{
     
@@ -30,7 +27,16 @@ export default {
   },
   //컴포넌트 메서드터 정의
   methods:{
-  }
+  },
+  //컴포넌트가 생성될 때 실행
+  created(){
+    console.log("Exam06View 컴포넌트가 생성됨");
+    console.log(this.$route);
+    console.log(this.$route.params.bno);
+  },
+  props: [
+    "bno"
+  ],
 }
 </script>
 <!--scoped : 지역변수, 없으면 전역 style이 된다. 붙이는게 좋다

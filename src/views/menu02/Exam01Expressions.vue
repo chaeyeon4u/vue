@@ -3,22 +3,23 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Element01View
+      Exam01Expressions
     </div>
     <div class="card-body">
-      <!--태그 이용 화면 전환(router-link)-->
-      <h6>선언적 방식 화면 이동</h6>
-      <router-link class="btn btn-info btn-sm" to="/menu01/exam02view">/menu01/exam02view</router-link>
-      <router-link class="btn btn-info btn-sm" v-binid:to="`/menu01/exam02view`">/menu01/exam02view(백틱`)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{path:'/menu01/exam02view'}">/menu01/exam02view(객체)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{name: 'menu01_exam02view'}">/menu01/exam02view(객체)</router-link>
+      <h5>상품정보</h5>
+      <p>번호: {{no}}</p>
+      <p>이름: {{name}}</p>
+      <p>회사: {{company}}</p>
+      <p>가격: {{price}}</p>
+      <p>판매여부: {{sale?"판매":"품절"}}</p>
+      <button class="btn btn-info btn-sm mt-2" v-on:click="changeData">변경</button>
     </div>
   </div>
 </template>
 <script>
 export default {
   //component의 대표 이름(devTools에 나오는 이름)
-  name:"Element01View",
+  name:"Exam01Expressions",
   //추가하고 싶은 컴포넌트를 등록
   components:{
     
@@ -26,10 +27,22 @@ export default {
   //컴포넌트 데이터 정의
   data: function(){
     return {
+      no:1,
+      name:"미니백",
+      company: "클레인",
+      price: 100000,
+      sale: true
     };
   },
   //컴포넌트 메서드터 정의
   methods:{
+    getPrice(){
+      return this.price;
+    },
+    changeData(){
+      this.price += 1000;
+      this.sale = !this.sale;
+    }
   }
 }
 </script>

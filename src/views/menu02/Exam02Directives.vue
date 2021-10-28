@@ -3,22 +3,22 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Element01View
+      Exam01Directives
     </div>
     <div class="card-body">
-      <!--태그 이용 화면 전환(router-link)-->
-      <h6>선언적 방식 화면 이동</h6>
-      <router-link class="btn btn-info btn-sm" to="/menu01/exam02view">/menu01/exam02view</router-link>
-      <router-link class="btn btn-info btn-sm" v-binid:to="`/menu01/exam02view`">/menu01/exam02view(백틱`)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{path:'/menu01/exam02view'}">/menu01/exam02view(객체)</router-link>
-      <router-link class="btn btn-info btn-sm" :to="{name: 'menu01_exam02view'}">/menu01/exam02view(객체)</router-link>
+      <div>
+        <img src="@/assets/photos/photo1.jpg" width="300px"/>
+        <img v-bind:src="require(`@/assets/photos/${photoFileName}`)" height="100" width="300px"/>
+      </div>
+      <hr/>
+      <button class="btn btn-info btn-sm" @click="changeData">변경</button>
     </div>
   </div>
 </template>
 <script>
 export default {
   //component의 대표 이름(devTools에 나오는 이름)
-  name:"Element01View",
+  name:"Exam01Directives",
   //추가하고 싶은 컴포넌트를 등록
   components:{
     
@@ -26,10 +26,18 @@ export default {
   //컴포넌트 데이터 정의
   data: function(){
     return {
+      photoFileName: "photo2.jpg"
     };
   },
   //컴포넌트 메서드터 정의
   methods:{
+    changeData(){
+     if(this.photoFileName === "photo2.jpg"){
+       this.photoFileName = "photo3.jpg";
+     }else{
+       this.photoFileName = "photo2.jpg";
+     }
+    }
   }
 }
 </script>

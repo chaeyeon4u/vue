@@ -3,24 +3,26 @@
 <template>
   <div class="card">
     <div class="card-header">
-      Exam04View
+      Exam04View(이름 있는 뷰)
     </div>
     <div class="card-body">
-      <div>
-        <router-view ></router-view>
-      </div>
       <div class="d-flex flex-column container-fluid">
+        <router-view ></router-view>
         <router-view name="rv1" class="mb-2"></router-view>
         <router-view name="rv2" class="mb-2"></router-view>
       </div>
-    </div>
 
-      <sub-a-component/>
-      <sub-b-component/>
-      <sub-c-component/>
+      <div class="card-body">
+        <sub-a-component/>
+        <sub-b-component/>
+        <sub-c-component/>
+      </div>
+    </div>
+    
   </div>
 </template>
 <script>
+//경로 @는 절대경로(src 다음부터)
 import SubAComponent from '@/components/menu01/SubAComponent.vue';
 import SubBComponent from '@/components/menu01/SubBComponent.vue';
 import SubCComponent from '@/components/menu01/SubCComponent.vue';
