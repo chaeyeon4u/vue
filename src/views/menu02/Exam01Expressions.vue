@@ -11,6 +11,7 @@
       <p>이름: {{name}}</p>
       <p>회사: {{company}}</p>
       <p>가격: {{price}}</p>
+      <p>가격: {{getPrice()}}</p>
       <p>판매여부: {{sale?"판매":"품절"}}</p>
       <button class="btn btn-info btn-sm mt-2" v-on:click="changeData">변경</button>
     </div>
@@ -25,12 +26,12 @@ export default {
     
   },
   //컴포넌트 데이터 정의
-  data: function(){
-    return {
+  data: function(){//컴포넌트 생성 이후 실행된다.(비동기로)
+    return {//return값이 컴포넌트의 데이터 값이다.
       no:1,
       name:"미니백",
       company: "클레인",
-      price: 100000,
+      price: 300000,
       sale: true
     };
   },

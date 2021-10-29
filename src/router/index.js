@@ -82,7 +82,7 @@ const routes = [
     path: "/menu01/exam08view",
     name: "menu01_exam08view",
     component: () => import(/* webpackChunkName: "menu01" */ "../views/menu01/Exam08View"),
-    props: (route) => ({
+    props: (route) => ({//(route) 사용하면 url이 실행된 이후에 실행된다.
         kind: route.query.kind,
         color: route.query.color
       })
@@ -94,6 +94,18 @@ const routes = [
   {
     path: "/menu02/exam02directives",
     component: () => import(/* webpackChunkName: "menu02" */ "../views/menu02/Exam02Directives"),
+  },
+  {
+    path: "/menu02/exam03attrbinding",
+    component: () => import(/* webpackChunkName: "menu02" */ "../views/menu02/Exam03AttrBinding"),
+  },
+  {
+    path: "/menu02/exam04formbinding",
+    component: () => import(/* webpackChunkName: "menu02" */ "../views/menu02/Exam04FormBinding"),
+  },
+  {
+    path: "/menu02/exam05forrepeatbinding",
+    component: () => import(/* webpackChunkName: "menu02" */ "../views/menu02/Exam05ForRepeatBinding"),
   },
 ];
 
