@@ -7,20 +7,26 @@
     </div>
     <div class="card-body">
       <h6>범위 반복</h6>
-      <span v-for="n in 10" :key="n" class="mr-2">
-        <img :src="require(`@/assets/photos/photo${n}.jpg`)" height="160">
+      <span v-for="n in 10" v-bind:key="n" class="mr-2">
+        <!--require : assets은 url로 접근 불가히기 때문에 require이 붙는다.
+            v-for와 v-if는 같이 사용하지 않는 것이 좋다.
+            v-bind(:) 뒤에는 javascript 문법이 들어간다. 문자열 아니다. 백틱(`) 사용하면 문자열이랑 변수 동시에 사용 가능하다.-->
+        <img :src="require(`@/assets/photos/photo${n}.jpg`)" height="160" v-if="n%2==0">
       </span>
     </div>
+
     <hr/>
 
     <h6>배열 항목 반복</h6>
     <div>
+      <!-- photo는 그림 index는 숫자 -->
       <span v-for="(photo, index) in photos" v-bind:key="index">
         <img :src="require(`@/assets/photos/${photo}`)" height="160">
       </span>
     </div>
 
     <hr/>
+
     <h6>객체 배열 항목 반복</h6>
     <table class="table table-boardered">
       <thead>
@@ -44,15 +50,22 @@
   </div>
 </template>
 <script>
+//import photoData from "../../data/photoData.js";
+//import boardData from "../../data/boardData.js";
+
 export default {
   //component의 대표 이름(devTools에 나오는 이름)
   name:"Exam05ForRepeatBinding",
   //추가하고 싶은 컴포넌트를 등록
   components:{
+      
   },
   //컴포넌트 데이터 정의
   data() {
     return {
+      //photos : photoData.photos,
+      //boards : boardData.boards,
+      //board : boardData.board
       photos: ["photo1.jpg", "photo2.jpg", "photo3.jpg"],
       boards: [
         {bno:1, btitle:"제목1", bwriter:"글쓴이1", bdate:"2021-08-07"},
@@ -68,7 +81,7 @@ export default {
       }
     };
   },
-  //컴포넌트 메서드터 정의
+  //컴포넌트 메서드 정의
   methods:{
   }
 }
