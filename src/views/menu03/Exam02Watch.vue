@@ -76,7 +76,7 @@ export default {
       console.log("oldVlaue : ", oldVlaue);
       console.log("userId : ", this.userId);
     },
-    product: {//oldValue 얻을 수 없다!
+    product: {//객체가 바뀐게 아니라 객체의 속성이 바뀐것이므로 oldValue 얻을 수 없다!
       deep: true,
       handler(newValue, oldVlaue){
         console.log("newValue : ", newValue);
